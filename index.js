@@ -42,7 +42,6 @@ app.listen(3000, () =>{
 
 // change
 
-
 // These warnings are false positives. There are no actual vulnerabilities affecting your app here.
 
 // To fix npm audit warnings, move react-scripts from dependencies to devDependencies in your package.json.
