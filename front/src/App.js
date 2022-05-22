@@ -3,6 +3,7 @@ import {Container} from './components/styled/Container.styled'
 
 import Navbar from './components/Navbar';
 import CreateUserSection from './components/CreateUserSection';
+import UsersList from './components/UsersList';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
 
         
         <CreateUserSection/>
+        <UsersList/>
         
       </Container>
     </div>

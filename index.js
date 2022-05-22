@@ -33,8 +33,8 @@ if(process.env.NODE_ENV != "development"){
 
 
 
-app.listen(3000, () =>{
-    console.log("NODE running on port 3000");
+app.listen(3001, () =>{
+    console.log("NODE running on port 3001");
 })
 
 

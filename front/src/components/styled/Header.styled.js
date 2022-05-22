@@ -7,4 +7,8 @@ export const StyledHeader = styled.header`
     input{
         margin: 30px 0;
     }
+
+    .userControlLabel{
+        margin-right: 7px;
+    }
 `

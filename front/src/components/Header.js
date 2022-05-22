@@ -4,11 +4,16 @@ function Header(){
     return(
 
         <StyledHeader>
-            <h2>Registro de usuário</h2>
+            <h2>Gestão de usuários</h2>
 
             <input type="radio" name="opc"
-            id="registerOpc" defaultChecked></input>
-            <label htmlFor="registerOpc">Cadastro</label>
+            id="findOpc" defaultChecked></input>
+            <label className="userControlLabel" htmlFor="findOpc">Pesquisar</label>
+
+            <input type="radio" name="opc"
+            id="registerOpc"></input>
+            <label className="userControlLabel"htmlFor="registerOpc">Cadastro</label>
+
         </StyledHeader>
     )
 }
