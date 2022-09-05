@@ -8,7 +8,7 @@ function UsersList(){
                 <th>Nome</th>
                 <th>Linguagem</th>
                 <th>Desenvolvedor</th>
-                <th>Link</th>
+                <th>Tipo</th>
                 <th></th>
             </tr>
             <tr>
@@ -16,9 +16,7 @@ function UsersList(){
                 <td>Diego Alcântara</td>
                 <td>Javascript</td>
                 <td>Front-end</td>
-                <td>
-                    <a href='https://alcantara-diego.github.io/portfolio/' target="_blank">Portfolio</a>
-                </td>
+                <td>Aluno</td>
                 <td><button className="userInfoBtn">
                     <i className="fa-solid fa-eye"></i>
                     </button>
@@ -27,10 +25,8 @@ function UsersList(){
             <tr>
                 <td>Dev 2</td>
                 <td>PHP</td>
-                <td>Front-end</td>
-                <td>
-                    <a href='https://github.com/Alcantara-Diego' target="_blank">Github</a>
-                </td>
+                <td>Full-stack</td>
+                <td>Candidato</td>
                 <td>
                     <button className="userInfoBtn">
                     <i className="fa-solid fa-eye"></i>
@@ -41,9 +37,7 @@ function UsersList(){
                 <td>Dev 3</td>
                 <td>Java</td>
                 <td>Back-end</td>
-                <td>
-                    <a href='https://github.com/Alcantara-Diego' target="_blank">Github</a>
-                </td>
+                <td>Externo</td>
                 <td>
                     <button className="userInfoBtn">
                     <i className="fa-solid fa-eye"></i>

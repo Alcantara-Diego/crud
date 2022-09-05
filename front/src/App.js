@@ -2,6 +2,7 @@ import './App.css'
 import {Container} from './components/styled/Container.styled'
 
 import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 import CreateUserSection from './components/CreateUserSection';
 import UsersList from './components/UsersList';
 
@@ -12,9 +13,12 @@ function App() {
       <Navbar/>
       <Container>
 
+        <Sidebar/>
         
-        <CreateUserSection/>
-        <UsersList/>
+        <div className="content">
+          <CreateUserSection/>
+          <UsersList/>
+        </div>
         
       </Container>
     </div>
