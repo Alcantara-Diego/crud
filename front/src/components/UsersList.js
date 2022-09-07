@@ -37,7 +37,7 @@ function UsersList(){
                 <td>Dev 3</td>
                 <td>Java</td>
                 <td>Back-end</td>
-                <td>Externo</td>
+                <td>Candidato</td>
                 <td>
                     <button className="userInfoBtn">
                     <i className="fa-solid fa-eye"></i>
