@@ -4,11 +4,12 @@ export const StyledHeader = styled.header`
     margin-top: 10px;
 
     
-    input{
+    select{
         margin: 30px 0;
     }
 
-    .userControlLabel{
-        margin-right: 7px;
+    input[type="search"]{
+        display: block;
     }
+
 `
