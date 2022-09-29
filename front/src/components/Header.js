@@ -1,40 +1,63 @@
 import { StyledHeader } from "./styled/Header.styled"
 
 function Header(){
+
+    function hideEveryList(){
+
+        const advancedSearchOptions = document.getElementsByClassName("advancedSearchOption");
+
+        for( let i=0; i < advancedSearchOptions.length; i++){
+            advancedSearchOptions[i].classList.remove(("showAdvancedSearchOption"));
+        }
+    }
+    
+
+    function searchParameters(){
+        const optionsList = document.getElementById("searchOptions");
+
+        // Get the selected value from the list of options.
+        const selectedOption = document.getElementById(`${optionsList.value}SelectGroup`);
+
+        // Hide every list before showing the selected one in order to avoid bugs.
+        hideEveryList();
+
+
+        //Show the selected list
+        selectedOption.classList.add("showAdvancedSearchOption");
+    }
+
     return(
 
         <StyledHeader>
             <h2>Gestão de usuários</h2>
 
-            <label for="pesquisa">Pesquisar por:</label>
-            <select  name="pesquisa" id="pesquisa">
-                <optgroup label="Atributo">
-                    <option value="volvo">Nome</option>
-                    <option value="saab">Telefone</option>
-                    <option value="saab">Linguagem</option>
-                    <option value="saab">Tipo de dev</option>
-                    <option value="saab">Aluno/Candidato</option>
+
+            <div className="student/candidate">
+                <input type="radio" name="student" defaultChecked></input><label for="student">Aluno</label>
+                <input type="radio" name="candidate"></input><label for="candidate">Candidato</label>
+            </div>
+
+
+            <label for="searchOptions">Pesquisar por:</label>
+            <select  name="searchOptions" id="searchOptions" onChange={searchParameters}>
+                <optgroup label="attribute">
+                    <option value="name">Nome</option>
+                    <option value="telephone">Telefone</option>
+                    <option value="lenguage">Linguagem</option>
+                    <option value="dev">Tipo de dev</option>
                 </optgroup>
             </select>
 
-            <input type="search" placeholder="Pesquisar"></input>
 
-            <select  name="aluno/candidato" id="aluno/candidato">
-                <optgroup label="Aluno/Candidato">
-                    <option value="volvo">Aluno</option>
-                    <option value="saab">Candidato</option>
-                </optgroup>
-            </select>
-
-            <select  name="desenvolvedor" id="desenvolvedor">
-                <optgroup label="Desenvolvedor">
+            <select  name="devSelectGroup" id="devSelectGroup" className="advancedSearchOption">
+                <optgroup label="Desenvolvedor" >
                     <option value="volvo">Front-end</option>
                     <option value="saab">Back-end</option>
                     <option value="saab">Full-stack</option>
                 </optgroup>
             </select>
 
-            <select  name="linguagem" id="linguagem">
+            <select  name="lenguageSelectGroup" id="lenguageSelectGroup" className="advancedSearchOption">
                 <optgroup label="linguagem">
                     <option value="volvo">Javascript</option>
                     <option value="saab">PHP</option>

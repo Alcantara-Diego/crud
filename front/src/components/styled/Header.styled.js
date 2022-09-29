@@ -12,4 +12,12 @@ export const StyledHeader = styled.header`
         display: block;
     }
 
+    .advancedSearchOption{
+        display: none;
+    }
+
+    .showAdvancedSearchOption{
+        display: block!important;
+    }
+
 `
