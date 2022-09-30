@@ -32,19 +32,21 @@ function Header(){
             <h2>Gestão de usuários</h2>
 
 
-            <div className="student/candidate">
-                <input type="radio" name="student" defaultChecked></input><label for="student">Aluno</label>
-                <input type="radio" name="candidate"></input><label for="candidate">Candidato</label>
-            </div>
+            {/* <div className="student/candidateDiv">
+                <input type="radio" name="student/candidate" defaultChecked></input><label for="student">Aluno</label>
+                <input type="radio" name="student/candidate"></input><label for="candidate">Candidato</label>
+            </div> */}
 
 
             <label for="searchOptions">Pesquisar por:</label>
             <select  name="searchOptions" id="searchOptions" onChange={searchParameters}>
                 <optgroup label="attribute">
-                    <option value="name">Nome</option>
-                    <option value="telephone">Telefone</option>
                     <option value="lenguage">Linguagem</option>
                     <option value="dev">Tipo de dev</option>
+                    <option value="studentOrCandidate">Aluno/Candidato</option>
+                    <option value="email">E-mail</option>
+                    <option value="name">Nome</option>
+                    <option value="telephone">Telefone</option>
                 </optgroup>
             </select>
 
@@ -65,6 +67,15 @@ function Header(){
                     <option value="saab">Phyton</option>
                     <option value="saab">C#</option>
                 </optgroup>
+            </select>
+
+            <select name="studentOrCandidateSelectGroup" id="studentOrCandidateSelectGroup" className="advancedSearchOption">
+                <optgroup label="Aluno/Candidato">
+                    <option value="student">Aluno</option>
+                    <option value="candidate">Candidato</option>
+
+                </optgroup>
+
             </select>
 
             <input type="button" value="Pesquisar"></input>

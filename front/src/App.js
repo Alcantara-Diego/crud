@@ -3,7 +3,8 @@ import {Container} from './components/styled/Container.styled'
 
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
-import CreateUserSection from './components/CreateUserSection';
+import SearchUserSection from './components/SearchUserSection';
+import NewUserSection from './components/NewUserSection';
 import UsersList from './components/UsersList';
 
 
@@ -16,7 +17,8 @@ function App() {
         <Sidebar/>
         
         <div className="content">
-          <CreateUserSection/>
+          <SearchUserSection/>
+          <NewUserSection/>
           <UsersList/>
         </div>
         
