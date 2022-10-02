@@ -32,35 +32,36 @@ function Header(){
             <h2>Gestão de usuários</h2>
 
 
-            {/* <div className="student/candidateDiv">
-                <input type="radio" name="student/candidate" defaultChecked></input><label for="student">Aluno</label>
-                <input type="radio" name="student/candidate"></input><label for="candidate">Candidato</label>
-            </div> */}
+            {/* Main search option */}
+            <div className="searchOptionsDiv">
+                <label for="searchOptions">Pesquisar por:</label>
+                <select  name="searchOptions" id="searchOptions" onChange={searchParameters}>
+                    <optgroup label="attribute">
+                        <option value="language">Linguagem</option>
+                        <option value="dev">Tipo de dev</option>
+                        <option value="studentOrCandidate">Aluno/Candidato</option>
+                        <option value="email">E-mail</option>
+                        <option value="name">Nome</option>
+                        <option value="telephone">Telefone</option>
+                    </optgroup>
+                </select>
+            </div>
 
 
-            <label for="searchOptions">Pesquisar por:</label>
-            <select  name="searchOptions" id="searchOptions" onChange={searchParameters}>
-                <optgroup label="attribute">
-                    <option value="lenguage">Linguagem</option>
-                    <option value="dev">Tipo de dev</option>
-                    <option value="studentOrCandidate">Aluno/Candidato</option>
-                    <option value="email">E-mail</option>
-                    <option value="name">Nome</option>
-                    <option value="telephone">Telefone</option>
-                </optgroup>
-            </select>
-
-
+            {/* Search by stack */}
             <select  name="devSelectGroup" id="devSelectGroup" className="advancedSearchOption">
                 <optgroup label="Desenvolvedor" >
+                    <option value="devDefault">Selecione</option>
                     <option value="volvo">Front-end</option>
                     <option value="saab">Back-end</option>
                     <option value="saab">Full-stack</option>
                 </optgroup>
             </select>
 
-            <select  name="lenguageSelectGroup" id="lenguageSelectGroup" className="advancedSearchOption">
+            {/* Search by programming language */}
+            <select  name="languageSelectGroup" id="languageSelectGroup" className="advancedSearchOption">
                 <optgroup label="linguagem">
+                    <option value="languageDefault">Selecione</option>
                     <option value="volvo">Javascript</option>
                     <option value="saab">PHP</option>
                     <option value="saab">Java</option>
@@ -69,8 +70,10 @@ function Header(){
                 </optgroup>
             </select>
 
+            {/* Search by type of user */}
             <select name="studentOrCandidateSelectGroup" id="studentOrCandidateSelectGroup" className="advancedSearchOption">
                 <optgroup label="Aluno/Candidato">
+                    <option value="userDefault">Selecione</option>
                     <option value="student">Aluno</option>
                     <option value="candidate">Candidato</option>
 
@@ -78,7 +81,23 @@ function Header(){
 
             </select>
 
-            <input type="button" value="Pesquisar"></input>
+            {/* Search by e-mail */}
+            <div id="emailSelectGroup" className="advancedSearchOption">
+                <input type="e-mail"></input>
+                <input type="button" value="Pesquisar"></input>
+            </div>
+
+            {/* Search by name */}
+            <div id="nameSelectGroup" className="advancedSearchOption">
+                <input type="name"></input>
+                <input type="button" value="Pesquisar"></input>
+            </div>
+
+            {/* Search by telephone */}
+            <div id="telephoneSelectGroup" className="advancedSearchOption">
+                <input type="tel"></input>
+                <input type="button" value="Pesquisar"></input>
+            </div>
 
 
 

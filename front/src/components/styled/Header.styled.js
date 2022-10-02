@@ -3,9 +3,13 @@ import styled from "styled-components";
 export const StyledHeader = styled.header`
     margin-top: 10px;
 
+
+    h2{
+        margin-bottom: 25px;
+    }
     
     select{
-        margin: 30px 0;
+        margin: 5px 0;
     }
 
     input[type="search"]{
