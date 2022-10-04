@@ -6,7 +6,7 @@ export default function NewUserSection (){
         <StyledNewUserSection>
             <h2>Novo usuário</h2>
 
-            <form action="">
+            <form action="POST">
 
                 <div className="student/candidateDiv">
                     <input type="radio" name="student/candidate" id="newStudent" defaultChecked></input><label for="newStudent">Aluno</label>
