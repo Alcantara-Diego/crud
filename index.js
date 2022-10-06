@@ -37,14 +37,7 @@ const Faketable = sequelize.define('faketable', {
     }
 })
 
-// Faketable.create({
-//     nome: "Diego",
-//     email: "email@mail.com",
-//     telefone: "123456",
-//     linguagem: "Javascript",
-//     tipodeusuario: "Aluno",
-//     stack: "Front-end"
-// })
+
 
 
 
@@ -60,10 +53,7 @@ app.get("/teste", (req, res) =>{
     res.send(teste);
 });
 
-app.post("/add", function(req, res){
-    
-    res.send(`Teste concluído: ${req.body.newName}, ${req.body.newEmail}, ${req.body.newTelephone}, ${req.body.newLanguage}`);
-})
+
 
 if(process.env.NODE_ENV != "development"){
 
@@ -81,7 +71,25 @@ if(process.env.NODE_ENV != "development"){
 }
 
 
+app.post("/add", (req, res) => {
+    
+    Faketable.create({
+        nome: req.body.newName,
+        email: req.body.newEmail,
+        telefone: req.body.newTelephone,
+        linguagem: req.body.newLanguage,
+        tipodeusuario: req.body.studentOrCandidate,
+        stack: req.body.newStack
+    });
 
+
+    console.log("SELECT * FROM faketables;");
+
+    res.sendFile(path.join(__dirname, "front/build/index.html"));
+
+
+
+})
 
 app.listen(3001, () =>{
     console.log("NODE running on port 3001");

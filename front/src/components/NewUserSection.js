@@ -6,11 +6,12 @@ export default function NewUserSection (){
         <StyledNewUserSection>
             <h2>Novo usuário</h2>
 
-            <form action="POST">
+            <form action="/add" method="POST">
 
-                <div className="student/candidateDiv">
-                    <input type="radio" name="student/candidate" id="newStudent" defaultChecked></input><label for="newStudent">Aluno</label>
-                    <input type="radio" name="student/candidate" id="newCandidate"></input><label for="newCandidate">Candidato</label>
+                <div className="studentOrCandidateDiv">
+                    <input type="radio" name="studentOrCandidate" id="newStudent" value="Aluno"></input><label for="Aluno">Aluno</label>
+
+                    <input type="radio" name="studentOrCandidate" id="newCandidate" value="Candidato" defaultChecked></input><label for="Candidato">Candidato</label>
                 </div>
 
                 <label for="newName">Nome</label>
@@ -25,19 +26,19 @@ export default function NewUserSection (){
 
                     <select  name="newStack" id="newStack">
                         <optgroup label="Desenvolvedor" >
-                            <option value="newFront">Front-end</option>
-                            <option value="newBack">Back-end</option>
-                            <option value="newFull">Full-stack</option>
+                            <option value="FrontEnd">Front-end</option>
+                            <option value="BackEnd">Back-end</option>
+                            <option value="FullStack">Full-stack</option>
                         </optgroup>
                     </select>
 
                     <select  name="newLanguage" id="Newlanguage">
                         <optgroup label="linguagem">
-                            <option value="newJavascript">Javascript</option>
-                            <option value="newPHP">PHP</option>
-                            <option value="newJava">Java</option>
-                            <option value="newPhyton">Phyton</option>
-                            <option value="newC">C#</option>
+                            <option value="Javascript">Javascript</option>
+                            <option value="PHP">PHP</option>
+                            <option value="Java">Java</option>
+                            <option value="Phyton">Phyton</option>
+                            <option value="C#">C#</option>
                         </optgroup>
                     </select>
                     
