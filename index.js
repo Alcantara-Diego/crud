@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const Sequelize = require('sequelize');
+const NewUser = require('./models/NewUser')
 require('dotenv').config();
 
 
@@ -10,32 +10,8 @@ require('dotenv').config();
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
-// Conection with the mysql database
-const sequelize = new Sequelize('teste', 'root', '123456', {
-    host: "localhost",
-    dialect: 'mysql'
-})
 
-const Faketable = sequelize.define('faketable', {
-    nome: {
-        type: Sequelize.STRING
-    },
-    email: {
-        type: Sequelize.STRING
-    },
-    telefone: {
-        type: Sequelize.INTEGER
-    },
-    linguagem: {
-        type: Sequelize.STRING
-    },
-    tipodeusuario: {
-        type: Sequelize.STRING
-    },
-    stack: {
-        type: Sequelize.STRING
-    }
-})
+
 
 
 
@@ -71,19 +47,28 @@ if(process.env.NODE_ENV != "development"){
 }
 
 
+app.get("/testando", (req, res) => {
+
+    res.json(JSON.stringify(NewUser.findAll()))
+})
+
 app.post("/add", (req, res) => {
     
-    Faketable.create({
+    NewUser.create({
         nome: req.body.newName,
         email: req.body.newEmail,
         telefone: req.body.newTelephone,
         linguagem: req.body.newLanguage,
         tipodeusuario: req.body.studentOrCandidate,
         stack: req.body.newStack
+    }).then(function(){
+        console.log("\x1b[42m", "Usuário adicionado com sucesso!")
+    }).catch(function(erro){
+        console.log("\x1b[41m", "Houve um erro ao criar o usuário: " + erro);
     });
 
 
-    console.log("SELECT * FROM faketables;");
+    console.log("\x1b[42m", "SELECT * FROM usuarios;");
 
     res.sendFile(path.join(__dirname, "front/build/index.html"));
 

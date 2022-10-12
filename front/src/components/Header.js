@@ -16,7 +16,7 @@ function Header(){
         const optionsList = document.getElementById("searchOptions");
 
         // Get the selected value from the list of options.
-        const selectedOption = document.getElementById(`${optionsList.value}SelectGroup`);
+        const selectedOption = document.getElementById(`${optionsList.value}Form`);
 
         // Hide every list before showing the selected one in order to avoid bugs.
         hideEveryList();
@@ -24,6 +24,8 @@ function Header(){
 
         //Show the selected list
         selectedOption.classList.add("showAdvancedSearchOption");
+
+        console.log(window.location.search)
     }
 
     return(
@@ -49,55 +51,62 @@ function Header(){
 
 
             {/* Search by stack */}
-            <select  name="devSelectGroup" id="devSelectGroup" className="advancedSearchOption">
-                <optgroup label="Desenvolvedor" >
-                    <option value="devDefault">Selecione</option>
-                    <option value="volvo">Front-end</option>
-                    <option value="saab">Back-end</option>
-                    <option value="saab">Full-stack</option>
-                </optgroup>
-            </select>
+            <form action="/" method="GET" id="devForm" className="advancedSearchOption">
+                <select  name="stack" >
+                    <optgroup label="Desenvolvedor" >
+                        <option value="devDefault">Selecione</option>
+                        <option value="frontEnd">Front-end</option>
+                        <option value="backEnd">Back-end</option>
+                        <option value="fullStack">Full-stack</option>
+                    </optgroup>
+                </select>
+                <input type="submit" value="Pesquisar"></input>
+            </form>
 
             {/* Search by programming language */}
-            <select  name="languageSelectGroup" id="languageSelectGroup" className="advancedSearchOption">
-                <optgroup label="linguagem">
-                    <option value="languageDefault">Selecione</option>
-                    <option value="volvo">Javascript</option>
-                    <option value="saab">PHP</option>
-                    <option value="saab">Java</option>
-                    <option value="saab">Phyton</option>
-                    <option value="saab">C#</option>
-                </optgroup>
-            </select>
+            <form action="/" method="GET" id="languageForm" className="advancedSearchOption">
+                <select  name="language">
+                    <optgroup label="linguagem">
+                        <option value="languageDefault">Selecione</option>
+                        <option value="javascript">Javascript</option>
+                        <option value="php">PHP</option>
+                        <option value="java">Java</option>
+                        <option value="phyton">Phyton</option>
+                        <option value="c#">C#</option>
+                    </optgroup>
+                </select>
+                <input type="submit" value="Pesquisar"></input>
+            </form>
 
             {/* Search by type of user */}
-            <select name="studentOrCandidateSelectGroup" id="studentOrCandidateSelectGroup" className="advancedSearchOption">
-                <optgroup label="Aluno/Candidato">
-                    <option value="userDefault">Selecione</option>
-                    <option value="student">Aluno</option>
-                    <option value="candidate">Candidato</option>
-
-                </optgroup>
-
-            </select>
+            <form action="/" method="GET" id="studentOrCandidateForm" className="advancedSearchOption">
+                <select name="usuario">
+                    <optgroup label="Aluno/Candidato">
+                        <option value="userDefault">Selecione</option>
+                        <option value="student">Aluno</option>
+                        <option value="candidate">Candidato</option>
+                    </optgroup>
+                </select>
+                <input type="submit" value="Pesquisar"></input>
+            </form>
 
             {/* Search by e-mail */}
-            <div id="emailSelectGroup" className="advancedSearchOption">
+            <form action="/" method="GET" id="emailForm" className="advancedSearchOption">
                 <input type="e-mail"></input>
-                <input type="button" value="Pesquisar"></input>
-            </div>
+                <input type="submit" value="Pesquisar"></input>
+            </form>
 
             {/* Search by name */}
-            <div id="nameSelectGroup" className="advancedSearchOption">
+            <form action="/" method="GET" id="nameForm" className="advancedSearchOption">
                 <input type="name"></input>
-                <input type="button" value="Pesquisar"></input>
-            </div>
+                <input type="submit" value="Pesquisar"></input>
+            </form>
 
             {/* Search by telephone */}
-            <div id="telephoneSelectGroup" className="advancedSearchOption">
+            <form action="/" method="GET" id="telephoneForm" className="advancedSearchOption">
                 <input type="tel"></input>
-                <input type="button" value="Pesquisar"></input>
-            </div>
+                <input type="submit" value="Pesquisar"></input>
+            </form>
 
 
 

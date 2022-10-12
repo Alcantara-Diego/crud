@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import SearchUserSection from './components/SearchUserSection';
 import NewUserSection from './components/NewUserSection';
-import UsersList from './components/UsersList';
+
 
 
 function App() {
@@ -19,7 +19,6 @@ function App() {
         <div className="content">
           <SearchUserSection/>
           <NewUserSection/>
-          <UsersList/>
         </div>
         
       </Container>
