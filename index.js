@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const NewUser = require('./models/NewUser')
+ 
 require('dotenv').config();
 
 
@@ -11,24 +11,39 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 
+ 
+
+let api = []
+async function showUsersInDataBase(att){
+    const db = require("./models/db");
+    const users = await db.selectUsers(att)
+    api = users;
+}
+
+showUsersInDataBase("all")
+
+async function insertUserInTheDatabase(newUserInfo){
+    const db = require("./models/db");
+
+    console.log(newUserInfo)
+    db.insertUser(newUserInfo)
+}
 
 
 
 
 
-
-
-
-
-const teste = [
-    "teste 1",
-    "teste2",
-    "teste 3",
-];
 app.get("/teste", (req, res) =>{
-    res.send(teste);
+
+    res.send(api);
 });
 
+
+
+app.get("/?usuario=candidate", (req, res) =>{
+
+    res.send(api);
+});
 
 
 if(process.env.NODE_ENV != "development"){
@@ -36,7 +51,7 @@ if(process.env.NODE_ENV != "development"){
     // Render the front-end content
     app.use(express.static(path.join(__dirname, "front/build")));
     
-    app.get("*", (req, res) => {
+    app.get("/", (req, res) => {
         res.sendFile(path.join(__dirname, "front/build/index.html", function(){
             if(error){
                 res.status(500).send(error);
@@ -47,34 +62,27 @@ if(process.env.NODE_ENV != "development"){
 }
 
 
-app.get("/testando", (req, res) => {
-
-    res.json(JSON.stringify(NewUser.findAll()))
-})
-
 app.post("/add", (req, res) => {
     
-    NewUser.create({
-        nome: req.body.newName,
-        email: req.body.newEmail,
-        telefone: req.body.newTelephone,
-        linguagem: req.body.newLanguage,
-        tipodeusuario: req.body.studentOrCandidate,
-        stack: req.body.newStack
-    }).then(function(){
-        console.log("\x1b[42m", "Usuário adicionado com sucesso!")
-    }).catch(function(erro){
-        console.log("\x1b[41m", "Houve um erro ao criar o usuário: " + erro);
-    });
-
-
-    console.log("\x1b[42m", "SELECT * FROM usuarios;");
+        console.log("SELECT * FROM usuarios;");
+        const newUserInfo = {
+            nome: req.body.newName,
+            email: req.body.newEmail,
+            telefone: req.body.newTelephone,
+            linguagem: req.body.newLanguage,
+            tipodeusuario: req.body.studentOrCandidate,
+            stack: req.body.newStack
+        }
+    insertUserInTheDatabase(newUserInfo)
 
     res.sendFile(path.join(__dirname, "front/build/index.html"));
 
-
-
 })
+
+
+
+
+
 
 app.listen(3001, () =>{
     console.log("NODE running on port 3001");
