@@ -140,7 +140,6 @@ app.post("/add", (req, res) => {
     insertUserInTheDatabase(newUserInfo)
 
     res.sendFile(path.join(__dirname, "front/build/index.html"));
-    // showUsersInDataBase("all", "none").then(res.send(api));
 
 })
 

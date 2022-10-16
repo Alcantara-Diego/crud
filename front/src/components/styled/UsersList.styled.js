@@ -29,5 +29,64 @@ export const StyledUsersList = styled.table`
         border-radius: 5px;
         cursor: pointer;
     }
+
+    #userAllInfoSection.show{
+        top: 50%;
+        left: 50%;
+    }
+    #userAllInfoSection{
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: .5s;
+
+        background-color: white;
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 25px 20px;
+        text-align: center;
+        z-index: 100;
+
+        #closeAllInfoSectionBtn{
+            position: absolute;
+            top: 13px;
+            right: 18px;
+
+            height: 17px;
+            width: 17px;
+            font-size: 1.2rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background: none;
+            border: none;
+            color:grey;
+
+            cursor:pointer;
+        }
+
+        .contentRow{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .userInfoDiv{
+                margin: 10px;
+            }
+        }
+        .userInfoData{
+            font-weight: bold;
+        }
+
+        h1{
+            margin-bottom: 10px;
+            font-size: 1.4rem
+        }
+    }
     
 `
