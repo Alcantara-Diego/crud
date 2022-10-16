@@ -82,10 +82,16 @@ app.get("/search?", (req, res) =>{
             getContentFromDatabase.then(result =>{
                 api = result;
                 console.table(api);
-                res.json(api)
+
+            }).then(end =>{
+
+                // app.use(express.static(path.join(__dirname, "front/build")));
+
+                res.sendFile(path.join(__dirname, "front/build/index.html"))
             })
             
 
+            
 
 
             
@@ -97,7 +103,6 @@ app.get("/search?", (req, res) =>{
 
     
     
-    // showUsersInDataBase("all", "none").then(res.send(api));
 });
 
 
@@ -134,7 +139,7 @@ app.post("/add", (req, res) => {
         }
     insertUserInTheDatabase(newUserInfo)
 
-    // res.sendFile(path.join(__dirname, "front/build/index.html"));
+    res.sendFile(path.join(__dirname, "front/build/index.html"));
     // showUsersInDataBase("all", "none").then(res.send(api));
 
 })

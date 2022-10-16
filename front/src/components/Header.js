@@ -3,8 +3,6 @@ import { StyledHeader } from "./styled/Header.styled"
 function Header(){
 
 
-   
-
 
     function hideEveryList(){
 
@@ -40,6 +38,9 @@ function Header(){
 
         console.log(getContent);
     }
+
+    
+
 
     return(
 
