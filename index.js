@@ -13,14 +13,15 @@ app.use(bodyParser.json())
 
  
 
-let api = []
-async function showUsersInDataBase(att){
+var api = []
+async function showUsersInDataBase(title, item){
     const db = require("./models/db");
-    const users = await db.selectUsers(att)
-    api = users;
+    const content = await db.selectUsers(title, item)
+    
+    return content
 }
 
-showUsersInDataBase("all")
+showUsersInDataBase("all", "none")
 
 async function insertUserInTheDatabase(newUserInfo){
     const db = require("./models/db");
@@ -33,17 +34,73 @@ async function insertUserInTheDatabase(newUserInfo){
 
 
 
-app.get("/teste", (req, res) =>{
+app.get("/api", (req, res) =>{
 
-    res.send(api);
+    res.json(api);
+    
 });
 
 
+app.get("/search?", (req, res) =>{
 
-app.get("/?usuario=candidate", (req, res) =>{
+    const values = [req.query.linguagem, req.query.usuario, req.query.stack];
 
-    res.send(api);
+    const urlParams = values;
+    if(urlParams) console.log(urlParams);
+
+    let param = "unselected";
+
+    for(let i=0; i< values.length; i++){
+
+        if(values[i]) {
+
+            console.log(values[i]);
+            console.log(i)
+
+            switch (i) {
+                case 0:
+                    param = "linguagem";
+                    console.log(param);
+                    break;
+
+                case 1:
+                    param = "tipodeusuario";
+                    console.log(param);
+                    break;
+
+                case 2:
+                    param = "stack"
+                    console.log(param);
+                    break;
+                default:
+                    break;
+            }
+
+            let getContentFromDatabase = showUsersInDataBase(param, values[i])
+            
+
+            getContentFromDatabase.then(result =>{
+                api = result;
+                console.table(api);
+                res.json(api)
+            })
+            
+
+
+
+            
+        }
+
+        
+        
+    }
+
+    
+    
+    // showUsersInDataBase("all", "none").then(res.send(api));
 });
+
+
 
 
 if(process.env.NODE_ENV != "development"){
@@ -62,6 +119,8 @@ if(process.env.NODE_ENV != "development"){
 }
 
 
+
+
 app.post("/add", (req, res) => {
     
         console.log("SELECT * FROM usuarios;");
@@ -75,9 +134,11 @@ app.post("/add", (req, res) => {
         }
     insertUserInTheDatabase(newUserInfo)
 
-    res.sendFile(path.join(__dirname, "front/build/index.html"));
+    // res.sendFile(path.join(__dirname, "front/build/index.html"));
+    // showUsersInDataBase("all", "none").then(res.send(api));
 
 })
+
 
 
 

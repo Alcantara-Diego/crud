@@ -14,12 +14,17 @@ async function connect() {
 }
 
 
-async function selectUsers(att){
+async function selectUsers(title, item){
     const conn = await connect();
 
-    if(att === "all"){
+    if(title === "all"){
         // [rows, fields] make sure that only the required information will be returned
         const [rows, fields] = await conn.execute('SELECT * FROM usuarios');
+        
+        return await rows;
+    } else{
+        const [rows, fields] = await conn.execute(`SELECT * FROM usuarios WHERE ${title} = "${item}"`);
+
         return await rows;
     }
     

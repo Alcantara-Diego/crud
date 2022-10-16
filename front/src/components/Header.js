@@ -2,6 +2,10 @@ import { StyledHeader } from "./styled/Header.styled"
 
 function Header(){
 
+
+   
+
+
     function hideEveryList(){
 
         const advancedSearchOptions = document.getElementsByClassName("advancedSearchOption");
@@ -25,13 +29,22 @@ function Header(){
         //Show the selected list
         selectedOption.classList.add("showAdvancedSearchOption");
 
-        console.log(window.location.search)
+        
+    }
+
+    async function printInfo(){
+
+        let response = await fetch("http://localhost:3001/api");
+
+        let getContent = await response.json()
+
+        console.log(getContent);
     }
 
     return(
 
         <StyledHeader>
-            <h2>Gestão de usuários</h2>
+        <h2>Gestão de usuários</h2>
 
 
             {/* Main search option */}
@@ -39,35 +52,36 @@ function Header(){
                 <label for="searchOptions">Pesquisar por:</label>
                 <select  name="searchOptions" id="searchOptions" onChange={searchParameters}>
                     <optgroup label="attribute">
-                        <option value="language">Linguagem</option>
-                        <option value="dev">Tipo de dev</option>
-                        <option value="studentOrCandidate">Aluno/Candidato</option>
+                    <option value="vazio">Selecione</option>
+                        <option value="linguagem">Linguagem</option>
+                        <option value="stack">Tipo de dev</option>
+                        <option value="usuario">Aluno/Candidato</option>
                         <option value="email">E-mail</option>
-                        <option value="name">Nome</option>
-                        <option value="telephone">Telefone</option>
+                        <option value="nome">Nome</option>
+                        <option value="telefone">Telefone</option>
                     </optgroup>
                 </select>
             </div>
 
 
             {/* Search by stack */}
-            <form action="/" method="GET" id="devForm" className="advancedSearchOption">
+            <form action="/search" method="GET" id="stackForm" className="advancedSearchOption">
                 <select  name="stack" >
                     <optgroup label="Desenvolvedor" >
-                        <option value="devDefault">Selecione</option>
+                        <option value="vazio">Selecione</option>
                         <option value="frontEnd">Front-end</option>
                         <option value="backEnd">Back-end</option>
                         <option value="fullStack">Full-stack</option>
                     </optgroup>
                 </select>
-                <input type="submit" value="Pesquisar"></input>
+                <input type="submit" value="Pesquisar" onClick={printInfo}></input>
             </form>
 
             {/* Search by programming language */}
-            <form action="/" method="GET" id="languageForm" className="advancedSearchOption">
-                <select  name="language">
+            <form action="/search" method="GET" id="linguagemForm" className="advancedSearchOption">
+                <select  name="linguagem">
                     <optgroup label="linguagem">
-                        <option value="languageDefault">Selecione</option>
+                        <option value="vazio">Selecione</option>
                         <option value="javascript">Javascript</option>
                         <option value="php">PHP</option>
                         <option value="java">Java</option>
@@ -75,36 +89,36 @@ function Header(){
                         <option value="c#">C#</option>
                     </optgroup>
                 </select>
-                <input type="submit" value="Pesquisar"></input>
+                <input type="submit" value="Pesquisar" onClick={printInfo}></input>
             </form>
 
             {/* Search by type of user */}
-            <form action="/" method="GET" id="studentOrCandidateForm" className="advancedSearchOption">
+            <form action="/search" method="GET" id="usuarioForm" className="advancedSearchOption">
                 <select name="usuario">
                     <optgroup label="Aluno/Candidato">
-                        <option value="userDefault">Selecione</option>
-                        <option value="student">Aluno</option>
-                        <option value="candidate">Candidato</option>
+                        <option value="vazio">Selecione</option>
+                        <option value="aluno">Aluno</option>
+                        <option value="candidato">Candidato</option>
                     </optgroup>
                 </select>
                 <input type="submit" value="Pesquisar"></input>
             </form>
 
             {/* Search by e-mail */}
-            <form action="/" method="GET" id="emailForm" className="advancedSearchOption">
-                <input type="e-mail"></input>
+            <form action="/search" method="GET" id="emailForm" className="advancedSearchOption">
+                <input type="e-mail" name="email"></input>
                 <input type="submit" value="Pesquisar"></input>
             </form>
 
             {/* Search by name */}
-            <form action="/" method="GET" id="nameForm" className="advancedSearchOption">
-                <input type="name"></input>
+            <form action="/search" method="GET" id="nomeForm" className="advancedSearchOption">
+                <input type="name" name="nome"></input>
                 <input type="submit" value="Pesquisar"></input>
             </form>
 
             {/* Search by telephone */}
-            <form action="/" method="GET" id="telephoneForm" className="advancedSearchOption">
-                <input type="tel"></input>
+            <form action="/search" method="GET" id="telefoneForm" className="advancedSearchOption">
+                <input type="tel" name="telefone"></input>
                 <input type="submit" value="Pesquisar"></input>
             </form>
 
