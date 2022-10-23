@@ -14,6 +14,24 @@ app.use(bodyParser.json())
  
 
 var api = []
+var allStudents = []
+var allCandidates = []
+
+// Prepare the students and candidates lists when it get selected from the user.
+async function updateStudentsAndCandidates(){
+    const db = require("./models/db");
+
+    allStudents = await db.selectUsers("tipodeusuario", "aluno");
+    allCandidates = await db.selectUsers("tipodeusuario", "candidato");
+
+    console.log("Alunos/Estudantes API atualizada");
+
+}
+
+updateStudentsAndCandidates();
+
+
+
 async function showUsersInDataBase(title, item){
     const db = require("./models/db");
     const content = await db.selectUsers(title, item)
@@ -28,11 +46,23 @@ async function insertUserInTheDatabase(newUserInfo){
 
     console.log(newUserInfo)
     db.insertUser(newUserInfo)
+
+    updateStudentsAndCandidates();
 }
 
 
 
+app.get("/alunos", (req, res) =>{
 
+    res.json(allStudents);
+    
+});
+
+app.get("/candidatos", (req, res) =>{
+
+    res.json(allCandidates);
+    
+});
 
 app.get("/api", (req, res) =>{
 

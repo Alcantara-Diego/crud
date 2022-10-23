@@ -6,3 +6,23 @@
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
 }
+.content{
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+}
+.sectionItem{
+    display: none;
+
+    /* 300px is the sidebar width, this number has to aways be the same as the sidebar width */
+    /* width: calc(50vw - 300px); */
+    width: fit-content;
+
+    /* 45px is the navbar width */
+    min-height: calc(60vh - 45px);
+    overflow: auto;
+} 
+.showSection{
+    background-color: white;
+    display: block!important;
+}

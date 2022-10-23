@@ -3,6 +3,10 @@ import { StyledSidebar } from "./styled/Sidebar.styled"
 
 function Sidebar(){
 
+    function showHideSections(sectionId){
+        document.getElementById(sectionId). classList.toggle("showSection");
+
+    }
 
     return (
         <StyledSidebar>
@@ -15,7 +19,7 @@ function Sidebar(){
 
             </li>
 
-            <li className="sidebarGroup">
+            <li className="sidebarGroup" onClick={(() => showHideSections("newUserSection"))}>
 
                 <div className="sidebarGroupHeader">
                     <i className="fa-solid fa-plus"></i> Novo usuário

@@ -1,0 +1,2 @@
+@import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap);*{box-sizing:border-box;font-family:Ubuntu,sans-serif;margin:0;padding:0}.content{display:flex;flex-direction:row;padding:40px}.sectionItem{display:none;min-height:calc(60vh - 45px);overflow:auto;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}.showSection{background-color:#fff;display:block!important}
+/*# sourceMappingURL=main.c13d7619.css.map*/

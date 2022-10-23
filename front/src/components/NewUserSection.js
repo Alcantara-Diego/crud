@@ -14,12 +14,12 @@ export default function NewUserSection (){
                     <input type="radio" name="studentOrCandidate" id="newCandidate" value="Candidato" defaultChecked></input><label for="Candidato">Candidato</label>
                 </div>
 
-                <label for="newName">Nome</label>
-                <input name="newName" type="name"></input>
-                <label for="newEmail">E-mail</label>
-                <input name="newEmail" type="e-mail"></input>
-                <label for="newTelephone">Telefone</label>
-                <input name="newTelephone" type="number"></input>
+                <label for="newName">Nome:</label>
+                <input name="newName" type="name" className="txtInput"></input>
+                <label for="newEmail">E-mail:</label>
+                <input name="newEmail" type="e-mail" className="txtInput"></input>
+                <label for="newTelephone">Telefone:</label>
+                <input name="newTelephone" type="number" className="txtInput"></input>
 
 
                 <div className="selections">
@@ -44,7 +44,7 @@ export default function NewUserSection (){
                     
                 </div>
 
-                <input type="submit" value="Salvar"></input>
+                <input type="submit" value="Adicionar cliente"></input>
             </form>
 
 

@@ -36,7 +36,7 @@ export const StyledUsersList = styled.table`
     }
     #userAllInfoSection{
         position: absolute;
-        top: -50%;
+        top: -110%;
         left: 50%;
         transform: translate(-50%, -50%);
         transition: .5s;
