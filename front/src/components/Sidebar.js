@@ -4,13 +4,25 @@ import { StyledSidebar } from "./styled/Sidebar.styled"
 function Sidebar(){
 
     function showHideSections(sectionId){
-        document.getElementById(sectionId). classList.toggle("showSection");
+        document.getElementById(sectionId).classList.toggle("showSection");
 
     }
 
     return (
         <StyledSidebar>
 
+            <li className="sidebarHeader">
+
+                
+                <div class="sidebarHeaderContent">
+                    <i className="fa-solid fa-user"></i>
+                    <div class="userInfo">
+                        <p>Bem-vindo</p>
+                        <h4>Usuario123</h4>
+                    </div>
+                </div>
+
+            </li>
             <li className="sidebarGroup">
 
                 <div className="sidebarGroupHeader">

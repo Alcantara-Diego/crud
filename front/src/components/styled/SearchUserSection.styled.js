@@ -5,6 +5,7 @@ export const StyledSearchUserSection = styled.section`
     display: block;
 
     padding: 10px;
+    overflow: hidden;
   
     background-color: white;
     border: 1px solid #80808080;

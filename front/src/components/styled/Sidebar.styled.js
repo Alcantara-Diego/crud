@@ -1,11 +1,31 @@
 import styled from "styled-components";
 
 export const StyledSidebar = styled.ul`
-    border-left: 2px solid white;
+    border-left: 1px solid white;
     heigh: 100%;
     width: 300px;
     list-style: none;
     background-color: #171717e8;
+
+    .sidebarHeader{
+
+        padding: 16px 8px;
+        background-image: linear-gradient(to top,#2b2b2b,#545454);
+        border-bottom: 2px solid gainsboro;
+
+        .sidebarHeaderContent{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            i{
+                margin-right: 7px;
+            }
+        }
+        p{
+            font-size: 0.8rem;
+        }
+    }
 
     .sidebarGroupHeader{
         transition: .2s;
