@@ -44,6 +44,10 @@ export const StyledSidebar = styled.ul`
         overflow: hidden;
         
     }
+
+    .hide{
+        display: none;
+    }
     
 
 

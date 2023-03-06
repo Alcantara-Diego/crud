@@ -8,6 +8,19 @@ function Sidebar(){
 
     }
 
+    function getAll(type){
+        if(type === "students"){
+            
+            let form = document.getElementById("getAllStudentsForm");
+            form.submit();
+
+           } else if(type === "candidates"){
+
+        let form = document.getElementById("getAllCandidatesForm");
+        form.submit();
+       }
+    }
+
     return (
         <StyledSidebar>
 
@@ -41,17 +54,28 @@ function Sidebar(){
 
             <li className="sidebarGroup">
 
-                <div className="sidebarGroupHeader">
-                    <i className="fa-solid fa-user-graduate"></i> Ver alunos
-                </div>
+                <form action="/search" method="GET" id="getAllStudentsForm">
+                    <select name="usuario" className="hide">
+                        <option value="aluno">Aluno</option>
+                    </select>
+                    <div className="sidebarGroupHeader" onClick={(() => getAll("students"))}>
+                        <i className="fa-solid fa-user-graduate"></i> Ver alunos
+                    </div>
+                </form>
 
             </li>
 
             <li className="sidebarGroup">
 
-                <div className="sidebarGroupHeader">
-                    <i className="fa-solid fa-user-group"></i> Ver candidatos
-                </div>
+                <form action="/search" method="GET" id="getAllCandidatesForm">
+
+                    <select name="usuario" className="hide">
+                        <option value="candidato">Candidato</option>
+                    </select>
+                    <div className="sidebarGroupHeader" onClick={(() => getAll("candidates"))}>
+                        <i className="fa-solid fa-user-group"></i> Ver candidatos
+                    </div>
+                </form>
 
             </li>
 
