@@ -34,7 +34,11 @@ async function selectUsers(title, item){
 async function insertUser(newUserInfo){
     const conn = await connect();
 
-    const sql = 'INSERT INTO usuarios(nome, email, telefone, linguagem, tipodeusuario, stack) VALUES (?, ?, ?, ?, ?, ?);';
+    const date = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
+    console.log(date)
+
+    const sql = 'INSERT INTO usuarios(nome, email, telefone, linguagem, tipodeusuario, stack, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW());';
 
     const values = [newUserInfo.nome, newUserInfo.email, newUserInfo.telefone, newUserInfo.linguagem, newUserInfo.tipodeusuario, newUserInfo.stack];
 
